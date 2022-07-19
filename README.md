@@ -1,19 +1,169 @@
 # Customer Awards API
-## Data Models
-### Data structures
-    To do this challenge in a fast and simple way, we pass over the Repository and DTO levels.
-    Also, we do not have a SQL Server database, and make data objects in memory on startup.
-    We have minimal properties for data entity classes:
-    Customer:
-        - Id: int (Key)
-        - Name: string
-    Transaction:
-        - CustomerId: int (FoerignKey)
-        - Date: DateTime
-        - Amount: double
-### Seed Data
-    To run easier, we have a Seed function to add data into the entity tables.
-    The data is a three-months duration (30 transactions) for 5 people.
+## API Request and Response example:
+### * Request URL
+All Customers Transactions per Months
+
+https://localhost:7104/api/Transaction
+
+### * Response Body
+
+```
+[
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Jan.",
+    "sumInMonth": 2
+  },
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Feb.",
+    "sumInMonth": 10
+  },
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Mar.",
+    "sumInMonth": 120
+  },
+  {
+    "id": 2,
+    "name": "Sara Moghadam",
+    "month": "Jan.",
+    "sumInMonth": 90
+  },
+  {
+    "id": 2,
+    "name": "Sara Moghadam",
+    "month": "Feb.",
+    "sumInMonth": 5
+  },
+  {
+    "id": 2,
+    "name": "Sara Moghadam",
+    "month": "Mar.",
+    "sumInMonth": 82
+  },
+  {
+    "id": 3,
+    "name": "John Smith",
+    "month": "Jan.",
+    "sumInMonth": 120
+  },
+  {
+    "id": 3,
+    "name": "John Smith",
+    "month": "Feb.",
+    "sumInMonth": 412
+  },
+  {
+    "id": 3,
+    "name": "John Smith",
+    "month": "Mar.",
+    "sumInMonth": 690
+  },
+  {
+    "id": 4,
+    "name": "Parsa Anderson",
+    "month": "Jan.",
+    "sumInMonth": 0
+  },
+  {
+    "id": 4,
+    "name": "Parsa Anderson",
+    "month": "Feb.",
+    "sumInMonth": 50
+  },
+  {
+    "id": 4,
+    "name": "Parsa Anderson",
+    "month": "Mar.",
+    "sumInMonth": 50
+  },
+  {
+    "id": 5,
+    "name": "Nima Grooman",
+    "month": "Jan.",
+    "sumInMonth": 50
+  },
+  {
+    "id": 5,
+    "name": "Nima Grooman",
+    "month": "Feb.",
+    "sumInMonth": 113
+  },
+  {
+    "id": 5,
+    "name": "Nima Grooman",
+    "month": "Mar.",
+    "sumInMonth": 0
+  }
+]
+```
+
+### * Request URL
+One CustomerTransactions per Months (Id = 1)
+https://localhost:7104/api/Transaction/1
+
+### * Response body
+```
+[
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Jan.",
+    "sumInMonth": 2
+  },
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Feb.",
+    "sumInMonth": 10
+  },
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "month": "Mar.",
+    "sumInMonth": 120
+  }
+]
+```
+
+### * Response Body
+All Customers Total Transaction
+https://localhost:7104/api/Transaction/Total
+
+### * Response Body
+```
+[
+  {
+    "id": 1,
+    "name": "Maziar Hassanzadeh",
+    "sumInMonth": 132
+  },
+  {
+    "id": 2,
+    "name": "Sara Moghadam",
+    "sumInMonth": 177
+  },
+  {
+    "id": 3,
+    "name": "John Smith",
+    "sumInMonth": 1222
+  },
+  {
+    "id": 4,
+    "name": "Parsa Anderson",
+    "sumInMonth": 100
+  },
+  {
+    "id": 5,
+    "name": "Nima Grooman",
+    "sumInMonth": 163
+  }
+]
+```
 
 ## Controllers:
 ### API Transaction
