@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAwardsAPI", "CAwardsAPI\CAwardsAPI.csproj", "{4C6B46A3-2EFC-4DAB-A9F3-6196A043215A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAwardsAPITest", "CAwardsAPITest\CAwardsAPITest.csproj", "{63556FAC-133F-421F-AB48-C231A2BC5FB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C6B46A3-2EFC-4DAB-A9F3-6196A043215A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C6B46A3-2EFC-4DAB-A9F3-6196A043215A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C6B46A3-2EFC-4DAB-A9F3-6196A043215A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C6B46A3-2EFC-4DAB-A9F3-6196A043215A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63556FAC-133F-421F-AB48-C231A2BC5FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63556FAC-133F-421F-AB48-C231A2BC5FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63556FAC-133F-421F-AB48-C231A2BC5FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63556FAC-133F-421F-AB48-C231A2BC5FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EB39A88-DCE3-4231-B080-598E81886229}
+	EndGlobalSection
+EndGlobal
