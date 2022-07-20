@@ -206,7 +206,7 @@ Test passed successfully:
 
 ### In this sample we have built-in Logger handler and Try-Catch block to isuue log of Information or Error Message.
 
-### In advanced level, we can use Nlog or Log4Net Nuget package and declare Logs Model to figure out, categorize, and save the messages.
+### In advanced level, we can use Nlog or Log4Net Nuget package and declare Logs Model to figure out, categorize, and save the logs.
 
 # 
 ### Thank You
