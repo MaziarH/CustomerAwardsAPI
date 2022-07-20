@@ -11,67 +11,102 @@ namespace CAward.API.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly ILogger<TransactionController> _logger;
 
-        public TransactionController(DataContext context)
+        public TransactionController(DataContext context, 
+                                    ILogger<TransactionController> logger)
         {
             _context = context;
-
             _context.Database.EnsureCreated();
+
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<ActionResult> GetMonthlyCustomersRewards()
         {
-            var total = from customers in _context.Customers
-                        join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
-                        group transactions by new { customers.Id, customers.Name, Month = transactions.Date.ToString("MMM") } into s
-                        select new
-                        {
-                            Id = s.Key.Id,
-                            Name = s.Key.Name,
-                            Month = s.Key.Month,
-                            SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
-                        };
-           //SumInMonth = s.Sum(new(s => Math.Round(s.Amount)))
-           // Math.Round(s.Sum(s => s.Amount <= 50 ? 0 : (s.Amount - 50 + (s.Amount <= 100 ? 0 : s.Amount - 100))))
+            try
+            {
+                _logger.LogInformation("Getting All Customer Rewards");
 
-            return Ok(await total.ToArrayAsync());
+                var total = from customers in _context.Customers
+                            join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
+                            group transactions by new { customers.Id, customers.Name, Month = transactions.Date.ToString("MMM") } into s
+                            select new
+                            {
+                                Id = s.Key.Id,
+                                Name = s.Key.Name,
+                                Month = s.Key.Month,
+                                SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
+                            };
+
+                return Ok(await total.ToArrayAsync());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return BadRequest("Internal Server error");
+            }
         }
 
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetOneCustomerRewards(int id)
         {
-            var total = from customers in _context.Customers
-                        join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
-                        where customers.Id == id
-                        group transactions by new { customers.Id, customers.Name, Month = transactions.Date.ToString("MMM") } into s
-                        select new
-                        {
-                            Id = s.Key.Id,
-                            Name = s.Key.Name,
-                            Month = s.Key.Month,
-                            SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
-                        };
+            try
+            {
+                _logger.LogInformation($"Getting Customer {id} Rewards");
+                if (id <= 0)
+                {
+                    _logger.LogInformation($"Invalid Customer ID: {id}");
 
-            return Ok(await total.ToArrayAsync());
+                }
+                var total = from customers in _context.Customers
+                            join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
+                            where customers.Id == id
+                            group transactions by new { customers.Id, customers.Name, Month = transactions.Date.ToString("MMM") } into s
+                            select new
+                            {
+                                Id = s.Key.Id,
+                                Name = s.Key.Name,
+                                Month = s.Key.Month,
+                                SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
+                            };
+
+                return Ok(await total.ToArrayAsync());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return BadRequest("Internal Server error");
+            }
         }
 
         [HttpGet]
         [Route("Total")]
         public async Task<ActionResult> GetTotalCustomersRewards()
         {
-            var total = from customers in _context.Customers
-                        join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
-                        group transactions by new { customers.Id, customers.Name } into s
-                        select new
-                        {
-                            Id = s.Key.Id,
-                            Name = s.Key.Name,
-                            SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
-                        };
+            try
+            {
+                _logger.LogInformation("Getting All Customer Total Rewards");
 
-            return Ok(await total.ToArrayAsync());
+                var total = from customers in _context.Customers
+                            join transactions in _context.Transactions on customers.Id equals transactions.CustomerId
+                            group transactions by new { customers.Id, customers.Name } into s
+                            select new
+                            {
+                                Id = s.Key.Id,
+                                Name = s.Key.Name,
+                                SumInMonth = s.Sum(s => new CalculateRewards().GetRewards(s.Amount))
+                            };
+
+                return Ok(await total.ToArrayAsync());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return BadRequest("Internal Server error");
+            }
         }
 
     }

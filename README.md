@@ -1,7 +1,8 @@
 # Customer Awards API
 ## API Request and Response example:
+
+### 1- All Customers Rewards per Months
 ### * Request URL
-All Customers Transactions per Months
 
 https://localhost:7104/api/Transaction
 
@@ -102,8 +103,9 @@ https://localhost:7104/api/Transaction
 ]
 ```
 
+### 2- One Customer's Rewards per Months (Id = 1)
 ### * Request URL
-One CustomerTransactions per Months (Id = 1)
+
 https://localhost:7104/api/Transaction/1
 
 ### * Response body
@@ -130,8 +132,9 @@ https://localhost:7104/api/Transaction/1
 ]
 ```
 
+### 3- All Customers Total Transaction
 ### * Response Body
-All Customers Total Transaction
+
 https://localhost:7104/api/Transaction/Total
 
 ### * Response Body
@@ -166,6 +169,7 @@ https://localhost:7104/api/Transaction/Total
 ```
 
 ## Controllers:
+
 ### API Transaction
     We required an API to return awards for each people per month and total.
 ### 1- /api/Transaction
@@ -196,5 +200,17 @@ Test passed successfully:
 
 ![imagename](/test.jpg)
 
+#
+
+## Logging and Exception Handling
+
+### In this sample we have built-in Logger handler and Try-Catch block to isuue log of Information or Error Message.
+
+### In advanced level, we can use Nlog or Log4Net Nuget package and declare Logs Model to figure out, categorize, and save the messages.
+
+# 
+### Thank You
+### 
+### Maziar
 
 
