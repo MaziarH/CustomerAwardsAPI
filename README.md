@@ -176,6 +176,8 @@ https://localhost:7104/api/Transaction/Total
     Return all Customers' Rewards per months
 ![imagename](/1.jpg)
 
+![alt text](http://url/to/1.jpg)
+
 ### 2- /api/Transaction/{id} 
     Return One Customer's Rewards per months, based on Customer Id.
 ![imagename](/2.jpg)
