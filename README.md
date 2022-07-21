@@ -174,15 +174,19 @@ https://localhost:7104/api/Transaction/Total
     We required an API to return awards for each people per month and total.
 ### 1- /api/Transaction
     Return all Customers' Rewards per months
-![](images/1.jpg)
+
+![1](https://user-images.githubusercontent.com/27779907/180128015-b9c9a0e1-8698-4d91-86f4-90c95bfd53d0.jpg)
+
 
 ### 2- /api/Transaction/{id} 
     Return One Customer's Rewards per months, based on Customer Id.
-![](images/2.jpg)
+
+![2](https://user-images.githubusercontent.com/27779907/180128045-c1368a0d-c91d-45c3-bc34-bfec059a3036.jpg)
 
 ### 3- /api/Transaction/Total
     Return all Customers' Rewards in Total
-![](images/3.jpg)
+
+![3](https://user-images.githubusercontent.com/27779907/180128073-952412da-1007-4b9b-891d-b9d52f5e2790.jpg)
 
 # 
 
@@ -198,7 +202,8 @@ Test with important amounts:
 
 Test passed successfully:
 
-![](images/test.jpg)
+![test](https://user-images.githubusercontent.com/27779907/180128095-ddde223e-ab85-4162-903d-82f911e47453.jpg)
+
 
 #
 
@@ -212,7 +217,7 @@ Test passed successfully:
 ### Thank You
 ### 
 ### Maziar
-![summer22](https://user-images.githubusercontent.com/27779907/180127357-be7f9ca2-d412-41a0-8a83-911676a670a4.jpg)
+
 
 
 
