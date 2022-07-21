@@ -1,8 +1,5 @@
-using CAwardsAPI.Middleware;
 using CAwardsAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,8 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseMiddleware(typeof(ExceptionHandlingMiddleware));  // added for logging
 
 app.UseHttpsRedirection();
 
