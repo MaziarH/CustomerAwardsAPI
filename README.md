@@ -174,15 +174,15 @@ https://localhost:7104/api/Transaction/Total
     We required an API to return awards for each people per month and total.
 ### 1- /api/Transaction
     Return all Customers' Rewards per months
-![](1.jpg)
+![](images/1.jpg)
 
 ### 2- /api/Transaction/{id} 
     Return One Customer's Rewards per months, based on Customer Id.
-![](2.jpg)
+![](images/2.jpg)
 
 ### 3- /api/Transaction/Total
     Return all Customers' Rewards in Total
-![](3.jpg)
+![](images/3.jpg)
 
 # 
 
@@ -198,7 +198,7 @@ Test with important amounts:
 
 Test passed successfully:
 
-![](test.jpg)
+![](images/test.jpg)
 
 #
 
